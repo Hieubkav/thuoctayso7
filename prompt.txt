@@ -1,0 +1,21 @@
+0)Khởi tạo nếu đã có từ trước
+Please read openspec/project.md and help me fill it out
+with details about my project, tech stack, and conventions
+
+1) lênh kế hoạchh
+Thực hiện theo quy trình OpenSpec:
+Đọc tệp openspec/project.md để nắm bối cảnh dự án.
+Tạo một thư mục tính năng mới trong openspec/changes/ đặt tên là __.
+Bao gồm các phần: specs, tasks, và mọi ghi chú thiết kế liên quan.
+Chờ đánh giá của tôi trước khi triển khai bất kỳ đoạn mã nào.
+
+1.5) Xem qua và đề xuất giải pháp tốt nhất 
+
+2)Thực hiện 
+Vui lòng triển khai công cụ phát hiện AI theo đề xuất OpenSpec trong thư mục openspec/changes/ai-detection-tool/.
+ 
+Làm theo các bản đặc tả (specs), nhiệm vụ (tasks), và ghi chú thiết kế (design notes) một cách chính xác.
+Tạo mã có thể hoạt động và sắp xếp các tệp đúng như được chỉ định trong đề xuất.
+
+Không thêm bất kỳ tính năng nào ngoài những gì đã được mô tả.
+Sau khi hoàn thành mỗi nhiệm vụ chính, hãy tóm tắt lại những gì đã được triển khai và vị trí lưu mã nguồn.
