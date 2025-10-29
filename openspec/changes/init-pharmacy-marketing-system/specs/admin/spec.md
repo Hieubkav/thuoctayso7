@@ -1,7 +1,7 @@
 ## ADDED Requirements
 
 ### Requirement: Admin Dashboard
-Hệ thống PHẢI cung cấp giao diện quản trị đơn giản để chủ quầy thuốc cập nhật sản phẩm, khuyến mãi, danh mục dịch vụ và bài viết nhanh chóng.
+Hệ thống MUST cung cấp giao diện quản trị đơn giản để chủ quầy thuốc cập nhật sản phẩm, danh mục dịch vụ và bài viết nhanh chóng.
 
 #### Scenario: Truy cập dashboard
 - **WHEN** admin đăng nhập thành công
@@ -9,10 +9,10 @@ Hệ thống PHẢI cung cấp giao diện quản trị đơn giản để chủ
 
 #### Scenario: Hiển thị tổng quan
 - **WHEN** admin truy cập dashboard
-- **THEN** hệ thống hiển thị các thông tin tổng quan về sản phẩm, bài viết và đơn hàng (nếu có)
+- **THEN** hệ thống hiển thị các thông tin tổng quan về sản phẩm và bài viết
 
 ### Requirement: Product Management
-Hệ thống PHẢI cho phép admin quản lý danh mục sản phẩm bao gồm thêm, sửa, xóa sản phẩm.
+Hệ thống MUST cho phép admin quản lý danh mục sản phẩm bao gồm thêm, sửa, xóa sản phẩm.
 
 #### Scenario: Thêm sản phẩm mới
 - **WHEN** admin truy cập trang quản lý sản phẩm và chọn "Thêm sản phẩm"
@@ -25,9 +25,9 @@ Hệ thống PHẢI cho phép admin quản lý danh mục sản phẩm bao gồm
 #### Scenario: Xóa sản phẩm
 - **WHEN** admin chọn một sản phẩm và chọn "Xóa"
 - **THEN** hệ thống hiển thị xác nhận và xóa sản phẩm sau khi xác nhận
-
 ### Requirement: Content Management
-Hệ thống PHẢI cho phép admin quản lý nội dung marketing bao gồm bài viết, dịch vụ và khuyến mãi.
+Hệ thống MUST cho phép admin quản lý nội dung marketing bao gồm bài viết và dịch vụ.
+
 
 #### Scenario: Quản lý bài viết
 - **WHEN** admin truy cập trang quản lý bài viết
@@ -37,12 +37,8 @@ Hệ thống PHẢI cho phép admin quản lý nội dung marketing bao gồm b�
 - **WHEN** admin truy cập trang quản lý dịch vụ
 - **THEN** hệ thống hiển thị danh sách dịch vụ để quản lý
 
-#### Scenario: Quản lý khuyến mãi
-- **WHEN** admin truy cập trang quản lý khuyến mãi
-- **THEN** hệ thống hiển thị danh sách khuyến mãi để quản lý
-
 ### Requirement: Simple Admin Interface
-Giao diện admin PHẢI dễ sử dụng cho người không chuyên CNTT và các tác vụ chính chỉ cần tối đa 3 bước để hoàn thành.
+Giao diện admin MUST dễ sử dụng cho người không chuyên CNTT và các tác vụ chính chỉ cần tối đa 3 bước để hoàn thành.
 
 #### Scenario: Giao diện đơn giản
 - **WHEN** admin sử dụng hệ thống quản trị

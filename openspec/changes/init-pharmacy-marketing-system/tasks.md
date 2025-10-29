@@ -6,22 +6,26 @@
 ## 2. Cấu hình Cơ sở dữ liệu
 - [ ] 2.1 Thiết lập Vercel Postgres
 - [ ] 2.2 Cài đặt Drizzle ORM
-- [ ] 2.3 Tạo schema cơ sở dữ liệu ban đầu trong lib/db/schema.ts
+- [ ] 2.3 Tạo schema cho products, services, articles, admin users theo yêu cầu spec
+- [ ] 2.4 Thêm bảng/column hỗ trợ đặt lại mật khẩu (reset tokens, expiry) và đảm bảo trường mật khẩu admin lưu ở dạng đã mã hóa
 
 ## 3. Xác thực và Quản lý Trạng thái
 - [ ] 3.1 Cài đặt NextAuth.js với provider Credentials
 - [ ] 3.2 Thiết lập hệ thống xác thực admin
 - [ ] 3.3 Cài đặt Zustand cho quản lý trạng thái
+- [ ] 3.4 Tích hợp cơ chế băm mật khẩu (vd. bcrypt) khi tạo/cập nhật admin user
+- [ ] 3.5 Xây dựng flow yêu cầu đặt lại mật khẩu (UI + API gửi email, tạo token)
+- [ ] 3.6 Xây dựng flow đặt lại mật khẩu (xác thực token, cập nhật mật khẩu mới)
 
 ## 4. Giao diện Người dùng
 - [ ] 4.1 Thiết lập UI components với shadcn/ui
-- [ ] 4.2 Tạo layout cơ bản cho marketing và admin
-- [ ] 4.3 Phát triển các components chung
+- [ ] 4.2 Tạo layout cho marketing và admin đúng cấu trúc Header/Footer/Speedial nêu trong spec
+- [ ] 4.3 Phát triển các components chung: hero, giới thiệu dịch vụ, danh mục thuốc, sản phẩm, bài viết, bản đồ chỉ đường
 
 ## 5. Tính năng Marketing
 - [ ] 5.1 Tạo landing page giới thiệu quầy thuốc
 - [ ] 5.2 Phát triển trang hiển thị sản phẩm/dịch vụ
-- [ ] 5.3 Tạo form liên hệ/tư vấn
+- [ ] 5.3 Bổ sung nội dung/CTA liên hệ phù hợp với yêu cầu landing page
 
 ## 6. Tính năng Quản trị
 - [ ] 6.1 Tạo dashboard admin
@@ -36,4 +40,4 @@
 ## 8. Triển khai
 - [ ] 8.1 Cấu hình Vercel deployment
 - [ ] 8.2 Thiết lập CI/CD pipeline
-- [ ] 8.3 Tích hợp Vercel Analytics
+- [ ] 8.3 Tích hợp Vercel Analytics và ghi nhận Web Vitals/thời gian tải cho yêu cầu Performance Monitoring
