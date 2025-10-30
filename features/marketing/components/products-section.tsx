@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Product } from "@/lib/db/schema";
 import { formatCurrency } from "@/lib/format";
+import { productImageFallback } from "@/features/marketing/data/fallback";
 
 interface ProductsSectionProps {
-  products: Array<Pick<Product, "id" | "name" | "description" | "price" | "imageUrl" | "unit" | "isFeatured">> | Array<{ name: string; description: string; price?: string }>;
+  products: Array<Pick<Product, "id" | "name" | "description" | "price" | "imageUrl" | "unit" | "isFeatured">> | Array<{ name: string; description: string; price?: string; unit?: string; imageUrl?: string }>;
 }
 
 export function ProductsSection({ products }: ProductsSectionProps) {
@@ -25,15 +26,15 @@ export function ProductsSection({ products }: ProductsSectionProps) {
         <div className="grid gap-6 md:grid-cols-3">
           {products.map((product) => (
             <Card key={(product as Product).id ?? product.name} className="overflow-hidden border-border/70 shadow-sm">
-              {"imageUrl" in product && product.imageUrl ? (
-                <div className="relative h-40 w-full">
-                  <Image src={product.imageUrl} alt={product.name} fill className="object-cover" />
-                </div>
-              ) : (
-                <div className="flex h-40 items-center justify-center bg-gradient-to-br from-primary/10 via-background to-accent/10 text-primary">
-                  <span className="text-lg font-semibold">{product.name.charAt(0)}</span>
-                </div>
-              )}
+              <div className="relative h-40 w-full overflow-hidden bg-muted">
+                <Image
+                  src={"imageUrl" in product && product.imageUrl ? product.imageUrl : productImageFallback}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 768px) 33vw, 90vw"
+                />
+              </div>
               <CardHeader>
                 <CardTitle className="text-xl">{product.name}</CardTitle>
                 <CardDescription>{product.description}</CardDescription>

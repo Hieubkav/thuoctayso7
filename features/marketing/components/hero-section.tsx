@@ -1,9 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PhoneCall } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { clinicInfo, marketingContent } from "@/lib/config";
+import { heroBackgroundImage } from "@/features/marketing/data/fallback";
 
 export function HeroSection() {
   return (
@@ -48,11 +50,19 @@ export function HeroSection() {
             ))}
           </ul>
         </div>
-        <div className="relative hidden h-full min-h-[320px] overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-primary/20 via-background to-accent/20 shadow-xl md:block">
-          <div className="absolute inset-0 animate-pulse bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.25),_transparent_60%)]" />
-          <div className="absolute inset-6 rounded-2xl border border-dashed border-primary/30 p-6 text-sm text-primary-foreground backdrop-blur-sm">
+        <div className="relative hidden h-full min-h-[320px] overflow-hidden rounded-3xl border border-primary/40 bg-black/10 shadow-xl md:block">
+          <Image
+            src={heroBackgroundImage}
+            alt="Quầy Thuốc Tây Sô 7 - không gian phục vụ khách hàng tại U Minh"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1280px) 40vw, (min-width: 768px) 45vw, 100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/40 via-emerald-700/20 to-emerald-600/20" />
+          <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-emerald-100/40 bg-background/85 p-6 text-sm text-primary-foreground backdrop-blur-sm">
             <p className="text-lg font-semibold text-primary">
-              Dược sĩ Trọng luôn sẵn sàng đồng hành cùng gia đình bạn
+              Dược sĩ Trưng luôn sẵn sàng đồng hành cùng gia đình bạn
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
               Tư vấn tận tâm, hướng dẫn chi tiết và theo dõi sát sao giúp người dân U Minh an tâm

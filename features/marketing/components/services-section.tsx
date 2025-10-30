@@ -1,9 +1,12 @@
+import Image from "next/image";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Service } from "@/lib/db/schema";
+import { serviceImageFallback } from "@/features/marketing/data/fallback";
 
 interface ServicesSectionProps {
-  services: Array<Pick<Service, "id" | "name" | "description">> | Array<{ name: string; description: string }>;
+  services: Array<Pick<Service, "id" | "name" | "description" | "imageUrl">> | Array<{ name: string; description: string; imageUrl?: string }>;
 }
 
 export function ServicesSection({ services }: ServicesSectionProps) {
@@ -20,7 +23,16 @@ export function ServicesSection({ services }: ServicesSectionProps) {
       </div>
       <div className="grid gap-6 md:grid-cols-3">
         {services.map((service) => (
-          <Card key={(service as Service).id ?? service.name} className="h-full border-border/70 shadow-sm">
+          <Card key={(service as Service).id ?? service.name} className="h-full overflow-hidden border-border/70 shadow-sm">
+            <div className="relative h-36 w-full overflow-hidden bg-muted">
+              <Image
+                src={"imageUrl" in service && service.imageUrl ? service.imageUrl : serviceImageFallback}
+                alt={service.name}
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 33vw, 90vw"
+              />
+            </div>
             <CardHeader>
               <CardTitle className="text-xl">{service.name}</CardTitle>
             </CardHeader>
