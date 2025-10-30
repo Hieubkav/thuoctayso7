@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hệ thống Marketing Quầy Thuốc Tây số 7
 
-## Getting Started
+Dự án Next.js 16 phục vụ việc giới thiệu quầy thuốc của Dược sĩ Trọng (U Minh, Cà Mau). Ứng dụng cung cấp landing page tối ưu cho di động, bảng điều khiển quản trị để cập nhật nội dung, cùng hạ tầng phân tích hiệu năng và CI/CD.
 
-First, run the development server:
+## Tính năng chính
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Marketing site**: Hero, dịch vụ, sản phẩm, bài viết, bản đồ chỉ đường, speed dial hỗ trợ nhanh.
+- **Landing page chuyên biệt**: Nội dung chuyên sâu, tái sử dụng các section marketing.
+- **Quản trị**: Đăng nhập NextAuth (Credentials), quản lý sản phẩm, dịch vụ, bài viết với CRUD qua Drizzle ORM.
+- **Khả năng đặt lại mật khẩu**: Flow yêu cầu & đặt lại mật khẩu qua email (Resend).
+- **Theo dõi hiệu suất**: Tích hợp `@vercel/analytics` và `@vercel/speed-insights`.
+- **Kiểm thử & CI**: Vitest cho unit tests, Playwright cấu hình sẵn cho E2E, Github Actions chạy lint/test.
+
+## Công nghệ
+
+- Next.js 16 App Router, React 19
+- Tailwind CSS, shadcn/ui, lucide-react
+- Zustand, React Hook Form, Zod
+- Drizzle ORM + Neon Postgres
+- NextAuth.js 5 (Credentials provider)
+- Bun package manager
+
+## Cấu trúc thư mục nổi bật
+
+```
+app/
+  (marketing)/        // Trang marketing & landing
+  (admin)/            // Khu vực đăng nhập + dashboard quản trị
+  api/                // API routes (NextAuth, CRUD, password reset)
+components/ui/        // Các thành phần UI tái sử dụng (shadcn)
+features/             // Module theo miền (auth, marketing, admin)
+lib/                  // Config, helpers, schema, env
+tests/                // Vitest & Playwright
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Lệnh hữu ích
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+bun install          # Cài đặt phụ thuộc
+bun run dev          # Khởi động môi trường phát triển
+bun run lint         # Kiểm tra ESLint
+bun run test         # Chạy unit tests Vitest
+bun run build        # Build Next.js cho production
+bun run test:e2e     # (Cần server chạy) chạy Playwright E2E
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## CI/CD và Triển khai
 
-## Learn More
+- `vercel.json` cấu hình build bằng Bun (`bun run build`).
+- Workflow `.github/workflows/ci.yml` chạy lint và unit test trên mỗi PR/push vào `main`.
+- Deploy đề xuất: Vercel (Next.js 16, analytics tích hợp).
 
-To learn more about Next.js, take a look at the following resources:
+## Chú ý môi trường
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Thiết lập các biến môi trường cần thiết (ví dụ `DATABASE_URL`, `NEXTAUTH_SECRET`, `RESEND_API_KEY`, `RESEND_FROM_EMAIL`) trước khi chạy build/serve production.

@@ -14,7 +14,7 @@
 | UI            | Next.js 16, Tailwind CSS, shadcn/ui, lucide-react | Frontend tái sử dụng, tài ứng |
 | State         | Zustand                                           | Quản lý state nhẹ cho admin     |
 | Form          | React Hook Form + Zod                             | Validation rõ ràng, UX tốt      |
-| DB            | Vercel Postgres + Drizzle ORM                     | CRUD type-safe, deploy nhanh       |
+| DB            | Neon Postgres + Drizzle ORM                       | CRUD type-safe, deploy nhanh       |
 | Auth          | NextAuth.js                                       | Đăng nhập admin/user linh hoạt |
 | Backend       | Route Handlers (API Routes)                       | Serverless, scale tự động       |
 | Hosting       | Vercel                                            | CI/CD sẵn có, tối ưu Next.js   |
@@ -69,7 +69,7 @@
 
 ## Phụ thuộc Bên ngoài
 
-- Vercel Postgres (managed Postgres) cho dữ liệu sản phẩm, bài viết, bản ghi đăng ký tư vấn.
+- Neon Postgres (serverless Postgres) cho dữ liệu sản phẩm, bài viết, bản ghi đăng ký tư vấn.
 - NextAuth.js với provider Credentials (email + mật khẩu) và tùy chọn OTP qua email sử dụng Resend
 - Vercel Analytics cho thống kê truy cập;
 - Dùng Sonner hoặc toast của shadcn/ui cho thông báo UI, lucide-react cho icon.
